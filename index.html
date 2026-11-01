@@ -13,7 +13,7 @@
 :root{
   --paper:#f5f1ea; --ink:#141412; --muted:#6b665d; --line:#d9d3c7;
   --sage:#8a9f5a; --sage-ink:#5e7134; --lime:#cfec85;
-  --sand:#e9e4da; --lav:#e8e3f0; --mint:#ebeedc;
+  --sand:#e9e4da; --lav:#e8e3f0; --mint:#ebeedc; --peach:#f3e3d5;
   --serif:'Newsreader','Times New Roman',serif;
   --sans:'Inter',system-ui,sans-serif;
   --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
@@ -79,26 +79,27 @@ header.nav{position:sticky;top:0;z-index:20;background:rgba(245,241,234,.88);bac
 .card h3{font-size:clamp(28px,3.2vw,40px);line-height:1.02}
 .card p{margin:0;color:var(--muted)}
 .card .metric{margin-top:auto;padding-top:18px}
+.card>.tags{margin-top:auto;padding-top:6px}
 .metric b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(44px,5vw,64px);letter-spacing:-.04em;line-height:1}
 .metric span{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .c1{grid-column:span 4;background:var(--sand);border-color:var(--sand)}
 .c2{grid-column:span 2;background:var(--lav);border-color:var(--lav)}
 .c3,.c4{grid-column:span 3}
 .c3{background:var(--mint);border-color:var(--mint)}
-.c5{grid-column:span 6}
+.c5,.c6{grid-column:span 3}
+.c6{background:var(--peach);border-color:var(--peach)}
 .c1 h3{font-size:clamp(34px,4.6vw,60px)}
 .dims{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:auto;padding-top:18px}
 .dims div{background:rgba(255,255,255,.55);border-radius:14px;padding:12px 14px;font-size:14px;line-height:1.35}
 .dims small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--sage-ink);margin-bottom:4px}
-.c5{flex-direction:row;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
-.c5 .txt{max-width:60ch;display:flex;flex-direction:column;gap:12px}
 
 /* lab */
 .lab{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .proj{border-radius:28px;background:#fff;border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column;min-width:0}
 .proj .vis{background:var(--sand);min-height:260px;display:grid;place-items:center;padding:28px;position:relative}
 .proj .body{padding:clamp(22px,3vw,34px);display:flex;flex-direction:column;gap:14px;flex:1}
-.proj.feat{grid-column:1/-1;flex-direction:row}
+.proj.feat,.proj.sql{grid-column:1/-1;flex-direction:row}
+.proj.sql{flex-direction:row-reverse}
 .proj.feat .vis{flex:0 0 42%;min-height:360px}
 .proj .metric{padding-top:4px}
 .proj .metric.sm b{font-size:clamp(40px,4.4vw,52px);white-space:nowrap}
@@ -116,7 +117,7 @@ header.nav{position:sticky;top:0;z-index:20;background:rgba(245,241,234,.88);bac
 .quote q{display:block;font-family:var(--serif);font-size:26px;line-height:1.1;letter-spacing:-.02em;margin:10px 0 14px;quotes:"\201C" "\201D"}
 .quote .tags li{font-size:10px;padding:4px 9px}
 .proj.proto .vis{background:var(--mint);min-height:0;padding:34px 28px;flex:1}
-.proj.sql .vis{background:var(--lav);min-height:0;display:block;padding:28px}
+.proj.sql .vis{background:var(--lav);flex:0 0 42%;display:grid;place-items:center;padding:28px}
 .sqlvis{display:grid;gap:10px;width:100%;max-width:420px;margin:0 auto}
 .sq{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-family:var(--serif);font-size:21px;line-height:1.15;letter-spacing:-.01em}
 .sq small,.sc small{display:block;font:500 10px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--sage-ink);margin-bottom:8px}
@@ -204,15 +205,16 @@ dialog[open]{display:grid;grid-template-rows:auto 1fr;animation:rise .35s cubic-
 @media (max-width:860px){
   .nav ul{display:none}
   .work,.lab,.about,.kit,.steps,.facts{grid-template-columns:1fr}
-  .c1,.c2,.c3,.c4,.c5{grid-column:auto}
+  .c1,.c2,.c3,.c4,.c5,.c6{grid-column:auto}
   .steps .step{border-bottom:1px solid var(--line);padding-bottom:22px}
   .proof{grid-template-columns:1fr}
   .proof div{border-bottom:1px solid var(--line);padding-bottom:18px}
   .db{grid-template-columns:1fr}
   .toc{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--line);padding:12px 18px;white-space:nowrap}
   dialog{height:92vh;border-radius:22px}
-  .proj.feat{flex-direction:column}
+  .proj.feat,.proj.sql{flex-direction:column}
   .proj.feat .vis{flex:none;min-height:240px}
+  .proj.sql .vis{flex:none}
 }
 @media (max-width:640px){
   .doc table,.doc tbody,.doc tr,.doc th,.doc td{display:block;width:100%;max-width:100%}
@@ -296,12 +298,16 @@ dialog[open]{display:grid;grid-template-rows:auto 1fr;animation:rise .35s cubic-
       <div class="metric"><b>35%</b><span>Better discovery in 2 weeks</span></div>
     </article>
     <article class="card c5">
-      <div class="txt">
-        <p class="kicker">BossWorks · 05</p>
-        <h3>AI assistants for business builders.</h3>
-        <p>Defined conversation flows, prompt strategy, and expected model behavior with the AI/ML engineers.</p>
-      </div>
+      <p class="kicker">BossWorks · 05</p>
+      <h3>AI assistants for business builders.</h3>
+      <p>Defined conversation flows, prompt strategy, and expected model behavior with the AI/ML engineers.</p>
       <ul class="tags"><li>Conversation design</li><li>Prompt strategy</li><li>Agentic AI</li></ul>
+    </article>
+    <article class="card c6">
+      <p class="kicker">BossWorks · 06</p>
+      <h3>Building with speed, not shortcuts.</h3>
+      <p>Prototyped in Cursor, Claude, and Lovable to validate ideas and sharpen requirements before engineering started.</p>
+      <div class="metric"><b>30%</b><span>Fewer iteration cycles</span></div>
     </article>
   </div>
 </div></section>
@@ -668,12 +674,6 @@ const PROJECTS = [
         sections: [['Short version','c-short'],['Problem','c-problem'],['How it works','c-how'],['Decisions','c-decisions'],['How I checked','c-check'],['What went wrong','c-wrong'],['Data','c-data'],['Cost','c-cost'],['Next','c-next']] },
       { label: 'Try the live app', href: 'https://voice-of-customer-copilot-f6achlhlvutr6xyye3sdms.streamlit.app/' }
     ]
-  },
-  {
-    id: 'rapid-prototyping', kind: 'stat', stat: '30%', statLabel: 'Fewer iteration cycles',
-    kicker: 'BossWorks', title: 'Building with speed, not shortcuts.',
-    summary: 'Rapid prototypes in Cursor, Claude, and Lovable to validate ideas and sharpen requirements before engineering starts.',
-    tags: ['Cursor', 'Claude', 'Lovable'], docs: []
   },
   {
     id: 'text-to-sql', kind: 'sql',
