@@ -382,8 +382,8 @@ dialog[open]{display:grid;grid-template-rows:auto 1fr;animation:rise .35s cubic-
   <div class="steps">
     <div class="step"><span class="mono">Discover</span><h3>Find the real problem</h3><p>Sit with users and stakeholders until the workflow behind the request is clear.</p></div>
     <div class="step"><span class="mono">Define</span><h3>Write it down</h3><p>Requirements, business rules, guardrails, and success metrics before anyone builds.</p></div>
-    <div class="step"><span class="mono">Build</span><h3>Prototype first</h3><p>Validate in Cursor, Claude, and Lovable, then ship with engineering.</p></div>
-    <div class="step"><span class="mono">Evaluate</span><h3>Measure the AI</h3><p>Check accuracy, grounding, and safety, not just whether it launched.</p><p style="margin-top:12px"><a class="doclink" href="#case-study" data-doc="case-study">See it in the Voice of Customer Copilot case study ↗</a></p></div>
+    <div class="step"><span class="mono">Build</span><h3>Prototype first</h3><p>Validate in Cursor, Claude, and Lovable before engineering starts, so requirements get sharper and iteration cycles shrink.</p></div>
+    <div class="step"><span class="mono">Evaluate</span><h3>Measure what matters</h3><p>Define success up front, then check it. For AI features that means accuracy, grounding, and safety. For everything else, adoption and speed.</p><p style="margin-top:12px"><a class="doclink" href="#case-study" data-doc="case-study">See it in the Voice of Customer Copilot case study ↗</a></p></div>
   </div>
 </div></section>
 
@@ -678,8 +678,8 @@ const PROJECTS = [
   {
     id: 'text-to-sql', kind: 'sql',
     kicker: 'LLM project', title: 'Text-to-SQL Query Conversion',
-    summary: 'Built an LLM-powered pipeline on Google Gemini Pro that converts natural-language questions into SQL for data access.',
-    tags: ['SQL', 'Google Gemini Pro', 'Streamlit', 'Natural language processing'], docs: []
+    summary: 'Built an LLM-powered pipeline that converts natural-language questions into SQL for data access.',
+    tags: ['SQL', 'Streamlit', 'Natural language processing'], docs: []
   }
 ];
 
@@ -695,7 +695,7 @@ PROJECTS.forEach(p => {
   const vis = p.kind === 'voc'
     ? `<div class="quote" aria-hidden="true"><span class="mono" style="color:var(--sage-ink);font-size:10px">Voice of customer · example review</span><q>My withdrawal has been pending for three days.</q><ul class="tags"><li>Payments</li><li>Critical</li><li>Money stuck</li></ul></div>`
     : p.kind === 'sql'
-    ? `<div class="sqlvis" aria-hidden="true"><div class="sq"><small>Plain English · illustrative example</small>Which customers placed the most orders?</div><div class="ar"><span>↓</span>Converted by Gemini Pro</div><div class="sc"><small>SQL</small><b>SELECT</b> customer_name,
+    ? `<div class="sqlvis" aria-hidden="true"><div class="sq"><small>Plain English · illustrative example</small>Which customers placed the most orders?</div><div class="ar"><span>↓</span>Converted by an LLM</div><div class="sc"><small>SQL</small><b>SELECT</b> customer_name,
        <b>COUNT</b>(*) <b>AS</b> orders
 <b>FROM</b> orders
 <b>GROUP BY</b> customer_name
