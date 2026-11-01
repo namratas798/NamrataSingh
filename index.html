@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Namrata Singh · AI Product Manager</title>
+<meta name="description" content="AI/ML engineer turned product manager. I define the product, prototype it, and measure whether the AI works.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: warm paper canvas, one serif voice, mono labels, sage as the single accent, lime reserved for the two calls to action */
+:root{
+  --paper:#f5f1ea; --ink:#141412; --muted:#6b665d; --line:#d9d3c7;
+  --sage:#8a9f5a; --sage-ink:#5e7134; --lime:#cfec85;
+  --sand:#e9e4da; --lav:#e8e3f0; --mint:#ebeedc;
+  --serif:'Newsreader','Times New Roman',serif;
+  --sans:'Inter',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  --gutter:max(20px,env(safe-area-inset-left,0px));
+  --gutter-r:max(20px,env(safe-area-inset-right,0px));
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--sage-ink);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1160px;margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter-r)}
+section{padding-block:clamp(64px,9vw,120px);border-top:1px solid var(--line)}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--sage-ink);margin:0 0 14px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.03em;line-height:1;margin:0;text-wrap:balance}
+h2{font-size:clamp(38px,6vw,68px)}
+h2 em,h1 em{font-style:italic;color:var(--sage)}
+.lede{color:var(--muted);font-size:clamp(17px,1.6vw,20px);max-width:52ch;margin:20px 0 0}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.tags li{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--line);border-radius:99px;padding:5px 12px;background:rgba(255,255,255,.35)}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:20;background:rgba(245,241,234,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.logo{font-weight:600;font-size:24px;letter-spacing:-.04em;text-decoration:none}
+.logo span{color:var(--sage)}
+.nav ul{display:flex;gap:30px;list-style:none;margin:0;padding:0}
+.nav ul a{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted)}
+.nav ul a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;font:500 15px/1 var(--sans);padding:15px 24px;border-radius:99px;border:1px solid var(--ink);background:transparent;color:var(--ink);text-decoration:none;cursor:pointer;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.lime{background:var(--lime);border-color:var(--lime)}
+.btn.dark{background:var(--ink);color:var(--paper)}
+.btn.ghost{border-color:var(--line)}
+.btn.sm{padding:11px 18px;font-size:13px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em}
+
+/* hero */
+.hero{border-top:0;padding-top:clamp(48px,8vw,104px);padding-bottom:clamp(48px,7vw,88px)}
+.hero .meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);margin-bottom:clamp(24px,5vw,56px)}
+.hero h1{font-size:clamp(46px,9.4vw,128px);line-height:.95;letter-spacing:-.045em;max-width:12.5ch}
+.hero .sub{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-top:clamp(28px,4vw,52px)}
+.hero .sub p{margin:0;max-width:44ch;font-size:clamp(17px,1.7vw,21px);color:var(--muted)}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.proof{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(40px,6vw,72px);border-top:1px solid var(--ink)}
+.proof div{padding:20px 20px 0 0}
+.proof b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(40px,6vw,76px);letter-spacing:-.04em;line-height:1}
+.proof span{display:block;font-size:14px;color:var(--muted);margin-top:8px;max-width:26ch}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero .meta,.hero h1,.hero .sub,.proof{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+.hero h1{animation-delay:.08s}.hero .sub{animation-delay:.18s}.proof{animation-delay:.28s}
+
+/* section header */
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(32px,5vw,56px)}
+.sh .mono{color:var(--muted)}
+
+/* work */
+.work{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.card{border:1px solid var(--line);border-radius:28px;padding:clamp(22px,3vw,34px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.card .kicker{margin:0}
+.card h3{font-size:clamp(28px,3.2vw,40px);line-height:1.02}
+.card p{margin:0;color:var(--muted)}
+.card .metric{margin-top:auto;padding-top:18px}
+.metric b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(44px,5vw,64px);letter-spacing:-.04em;line-height:1}
+.metric span{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.c1{grid-column:span 4;background:var(--sand);border-color:var(--sand)}
+.c2{grid-column:span 2;background:var(--lav);border-color:var(--lav)}
+.c3,.c4{grid-column:span 3}
+.c3{background:var(--mint);border-color:var(--mint)}
+.c5{grid-column:span 6}
+.c1 h3{font-size:clamp(34px,4.6vw,60px)}
+.dims{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:auto;padding-top:18px}
+.dims div{background:rgba(255,255,255,.55);border-radius:14px;padding:12px 14px;font-size:14px;line-height:1.35}
+.dims small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--sage-ink);margin-bottom:4px}
+.c5{flex-direction:row;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.c5 .txt{max-width:60ch;display:flex;flex-direction:column;gap:12px}
+
+/* lab */
+.lab{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.proj{border-radius:28px;background:#fff;border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.proj .vis{background:var(--sand);min-height:260px;display:grid;place-items:center;padding:28px;position:relative}
+.proj .body{padding:clamp(22px,3vw,34px);display:flex;flex-direction:column;gap:14px;flex:1}
+.proj.feat{grid-column:1/-1;flex-direction:row}
+.proj.feat .vis{flex:0 0 42%;min-height:360px}
+.proj .metric{padding-top:4px}
+.proj .metric.sm b{font-size:clamp(40px,4.4vw,52px);white-space:nowrap}
+.metric .arr{font-family:var(--sans);font-size:.62em;padding:0 .14em;vertical-align:.1em}
+.proj h3{font-size:clamp(30px,3.6vw,46px)}
+.proj p{margin:0;color:var(--muted)}
+.status{display:inline-flex;align-items:center;gap:8px}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sage);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.25}}
+.docs{display:flex;gap:18px;flex-wrap:wrap;margin-top:6px}
+.doclink{font:500 15px/1.2 var(--sans);background:none;border:0;padding:0 0 3px;cursor:pointer;color:var(--ink);border-bottom:1.5px solid var(--sage);text-decoration:none}
+.doclink:hover{color:var(--sage-ink)}
+.quote{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:20px 22px;max-width:340px;transform:rotate(-3deg);box-shadow:0 18px 40px -20px rgba(20,20,18,.35);transition:transform .4s}
+.proj:hover .quote{transform:rotate(-1deg) translateY(-4px)}
+.quote q{display:block;font-family:var(--serif);font-size:26px;line-height:1.1;letter-spacing:-.02em;margin:10px 0 14px;quotes:"\201C" "\201D"}
+.quote .tags li{font-size:10px;padding:4px 9px}
+.proj.proto .vis{background:var(--mint);min-height:0;padding:34px 28px}
+.big{font-family:var(--serif);font-size:clamp(64px,8vw,104px);letter-spacing:-.05em;line-height:.9}
+.more{border:1.5px dashed var(--line);background:transparent;display:grid;place-items:center;text-align:center;padding:30px;color:var(--muted)}
+.more b{display:block;font-family:var(--serif);font-weight:400;font-size:28px;color:var(--ink);letter-spacing:-.02em}
+
+/* experience */
+.exp{display:flex;flex-direction:column;gap:14px}
+details.role{border:1px solid var(--line);border-radius:28px;background:transparent}
+details.role[open]{background:rgba(255,255,255,.4)}
+details.role summary{list-style:none;cursor:pointer;padding:clamp(22px,3vw,32px);display:grid;grid-template-columns:1fr auto;gap:8px 20px}
+details.role summary::-webkit-details-marker{display:none}
+.role h3{font-size:clamp(32px,4vw,52px)}
+.role .title{font-weight:500;margin:6px 0 0}
+.role .when{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:14px;grid-column:1/-1}
+.role .out{grid-column:1/-1;margin:0;color:var(--sage-ink);font-weight:500}
+.plus{width:36px;height:36px;border:1px solid var(--line);border-radius:50%;position:relative;align-self:start}
+.plus::before,.plus::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;background:var(--ink);transform:translate(-50%,-50%)}
+.plus::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .25s}
+details[open] .plus::after{transform:translate(-50%,-50%) rotate(0)}
+.role .more-body{padding:0 clamp(22px,3vw,32px) clamp(22px,3vw,32px)}
+.role ul.b{margin:0 0 20px;padding-left:20px;display:grid;gap:10px;color:var(--muted);max-width:78ch}
+.role ul.b li::marker{color:var(--sage)}
+.role .now{font:500 clamp(19px,2vw,24px)/1.3 var(--sans);letter-spacing:-.01em;margin:0 0 14px;border-top:1px solid var(--line);padding-top:20px}
+
+/* approach */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}
+.step{padding:22px 22px 0 0}
+.step .mono{color:var(--sage-ink)}
+.step h3{font-size:clamp(30px,3.2vw,42px);margin:10px 0 12px}
+.step p{margin:0;color:var(--muted);font-size:15px}
+
+/* toolkit */
+.kit{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.kit div{background:var(--sand);border-radius:20px;padding:22px 24px}
+.kit h3{font:600 15px/1.3 var(--sans);letter-spacing:0;margin-bottom:8px}
+.kit p{margin:0;color:var(--muted);font-size:15px}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,80px)}
+.about .copy p{margin:0 0 16px;color:var(--muted);font-size:18px;max-width:52ch}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(20px,4vw,48px);margin-top:clamp(36px,5vw,64px)}
+.fact{border-top:1px solid var(--line);padding:18px 0 22px}
+.fact .mono{color:var(--sage-ink)}
+.fact h3{font-size:clamp(24px,2.6vw,32px);margin:8px 0 4px;line-height:1.1}
+.fact p{margin:0;color:var(--muted);font-size:14px}
+
+/* contact */
+.contact{background:var(--lime);border-radius:36px;margin:0 auto clamp(24px,4vw,48px);padding:clamp(32px,6vw,80px);max-width:1160px}
+.contact h2{font-size:clamp(40px,7vw,96px);max-width:14ch;letter-spacing:-.04em}
+.contact .kicker{color:#2f3d12}
+.contact p.l{max-width:46ch;font-size:19px;color:#3d4a22;margin:22px 0 30px}
+.contact .btn.ghost{border-color:#141412}
+.mail{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:22px;font-family:var(--mono);font-size:13px;color:#2f3d12}
+.mail button{font:inherit;background:none;border:1px solid #2f3d12;border-radius:99px;padding:6px 12px;cursor:pointer;color:inherit}
+footer{padding-block:28px 40px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* dialog */
+dialog{border:0;padding:0;background:var(--paper);color:var(--ink);width:min(1040px,calc(100vw - 24px));height:min(88vh,860px);border-radius:28px;overflow:hidden}
+dialog::backdrop{background:rgba(20,20,18,.55);backdrop-filter:blur(4px)}
+dialog[open]{display:grid;grid-template-rows:auto 1fr;animation:rise .35s cubic-bezier(.2,.7,.2,1)}
+.dh{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 22px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.dh .l{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.pill{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;background:var(--lav);border-radius:99px;padding:5px 12px}
+.x{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:transparent;cursor:pointer;font-size:20px;line-height:1;color:var(--ink)}
+.db{display:grid;grid-template-columns:200px 1fr;min-height:0}
+.toc{border-right:1px solid var(--line);padding:24px 18px;display:flex;flex-direction:column;gap:12px;overflow:auto}
+.toc a{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;color:var(--muted)}
+.toc a:hover{color:var(--ink)}
+.doc{overflow:auto;padding:clamp(22px,4vw,48px);scroll-behavior:smooth}
+.doc h2{font-size:clamp(34px,5vw,54px);margin-bottom:8px}
+.doc h3{font:600 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--sage-ink);margin:36px 0 12px}
+.doc p,.doc li{color:var(--muted);max-width:68ch}
+.doc .note{background:var(--mint);border-radius:14px;padding:14px 18px;color:#3d4a22;margin:18px 0 0;max-width:68ch}
+.doc table{border-collapse:collapse;width:100%;max-width:68ch;font-size:14px}
+.doc td,.doc th{border-top:1px solid var(--line);padding:10px 12px 10px 0;text-align:left;vertical-align:top;color:var(--muted)}
+.doc td,.doc th{overflow-wrap:anywhere}
+.doc th{color:var(--ink);font-weight:500;width:26%}
+
+@media (max-width:860px){
+  .nav ul{display:none}
+  .work,.lab,.about,.kit,.steps,.facts{grid-template-columns:1fr}
+  .c1,.c2,.c3,.c4,.c5{grid-column:auto}
+  .steps .step{border-bottom:1px solid var(--line);padding-bottom:22px}
+  .proof{grid-template-columns:1fr}
+  .proof div{border-bottom:1px solid var(--line);padding-bottom:18px}
+  .db{grid-template-columns:1fr}
+  .toc{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--line);padding:12px 18px;white-space:nowrap}
+  dialog{height:92vh;border-radius:22px}
+  .proj.feat{flex-direction:column}
+  .proj.feat .vis{flex:none;min-height:240px}
+}
+@media (max-width:640px){
+  .doc table,.doc tbody,.doc tr,.doc th,.doc td{display:block;width:100%;max-width:100%}
+  .doc tr{border-top:1px solid var(--line);padding:10px 0}
+  .doc td,.doc th{border-top:0;padding:0}
+  .doc th{margin-bottom:2px}
+  .doc tr:first-child:has(td:nth-of-type(2)){display:none}
+  .doc tr:has(td:nth-of-type(2)) td:nth-of-type(1)::before{content:"Check: ";font-weight:500;color:var(--ink)}
+  .doc tr:has(td:nth-of-type(2)) td:nth-of-type(2)::before{content:"Bar: ";font-weight:500;color:var(--ink)}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">namrata<span>.</span></a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#lab">AI Lab</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <a class="btn sm" href="#contact">Let's talk ↗</a>
+  </div>
+</header>
+
+<main id="top">
+<div class="wrap hero">
+  <div class="meta mono"><span>AI Product Manager · Product thinker</span><span>Bangalore, India</span></div>
+  <h1>I turn complex problems into <em>products</em> people love.</h1>
+  <div class="sub">
+    <p>AI/ML engineer turned product manager. I define the product, prototype it, and measure whether the AI works.</p>
+    <div class="cta-row">
+      <a class="btn lime" href="#work">Explore my work ↗</a>
+      <a class="btn ghost" href="#resume" data-doc="resume">Resume ↗</a>
+    </div>
+  </div>
+  <div class="proof">
+    <div><b>30%</b><span>Faster iteration cycles through rapid prototyping</span></div>
+    <div><b>35%</b><span>Better expert discovery within 2 weeks</span></div>
+    <div><b>+12%</b><span>DAU from a multilingual AI news feature</span></div>
+  </div>
+</div>
+
+<section id="work"><div class="wrap">
+  <div class="sh">
+    <div><p class="kicker">Selected work</p><h2>Ideas into <em>impact.</em></h2></div>
+    <span class="mono">Shipped at BossWorks</span>
+  </div>
+  <div class="work">
+    <article class="card c1">
+      <p class="kicker">BossWorks · 01</p>
+      <h3>AI agents can sound right and still be wrong.</h3>
+      <p>I developed an evaluation framework that scores agent responses against defined criteria, so quality is measured instead of guessed.</p>
+      <div class="dims">
+        <div><small>01</small>Factual accuracy</div>
+        <div><small>02</small>Context utilization</div>
+        <div><small>03</small>Hallucination and grounding</div>
+        <div><small>04</small>Safety compliance</div>
+        <div><small>05</small>Response quality</div>
+      </div>
+    </article>
+    <article class="card c2">
+      <p class="kicker">BossWorks · 02</p>
+      <h3>An AI platform to launch a business.</h3>
+      <p>Owned the product end to end: AI-generated business plans, financial planning, budgeting, and execution workflows.</p>
+      <ul class="tags"><li>End to end</li><li>Product definition</li></ul>
+    </article>
+    <article class="card c3">
+      <p class="kicker">BossWorks · 03</p>
+      <h3>News that speaks every language.</h3>
+      <p>Led launch of a multilingual AI news summarization feature and defined its success metrics.</p>
+      <div class="metric"><b>+12%</b><span>Daily active users</span></div>
+    </article>
+    <article class="card c4">
+      <p class="kicker">BossWorks · 04</p>
+      <h3>Expert discovery, reimagined.</h3>
+      <p>Reworked onboarding workflows with product, marketing, and operations so users find the right experts.</p>
+      <div class="metric"><b>35%</b><span>Better discovery in 2 weeks</span></div>
+    </article>
+    <article class="card c5">
+      <div class="txt">
+        <p class="kicker">BossWorks · 05</p>
+        <h3>AI assistants for business builders.</h3>
+        <p>Defined conversation flows, prompt strategy, and expected model behavior with the AI/ML engineers.</p>
+      </div>
+      <ul class="tags"><li>Conversation design</li><li>Prompt strategy</li><li>Agentic AI</li></ul>
+    </article>
+  </div>
+</div></section>
+
+<section id="lab"><div class="wrap">
+  <div class="sh">
+    <div><p class="kicker">AI Lab</p><h2>Things I'm <em>building.</em></h2></div>
+    <span class="mono">Independent work and experiments</span>
+  </div>
+  <div class="lab" id="labGrid"></div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <div class="sh">
+    <div><p class="kicker">Experience</p><h2>Where I've <em>worked.</em></h2></div>
+    <span class="mono">3 roles · 2023 to now</span>
+  </div>
+  <div class="exp">
+    <details class="role" open>
+      <summary>
+        <div><p class="kicker">Current</p><h3>Terrantic</h3><p class="title">Product Manager</p></div>
+        <span class="plus" aria-hidden="true"></span>
+        <p class="when"><span>Apr 2026 to present</span><span>Bangalore, India</span></p>
+      </summary>
+      <div class="more-body">
+        <p class="now">Building financial workflows for the fresh-produce industry.</p>
+        <ul class="b">
+          <li>Partner with enterprise stakeholders to turn fragmented workflows and disconnected systems into AI-powered product requirements, working with engineering.</li>
+          <li>Drive a financial accounting platform that brings revenue, costs, deductions, and supplier settlements into one tool, replacing Excel-heavy workflows with better visibility and traceability.</li>
+          <li>Led user testing and structured defect tracking to refine workflows and surface edge cases.</li>
+          <li>Define requirements and business rules for financial modules, leading engineering and design through development and testing so records stay accurate and auditable.</li>
+          <li>Define AI assistant requirements: agent responsibilities, tool-calling workflows, data sources, expected behavior, guardrails, edge cases, and escalation paths.</li>
+        </ul>
+        <ul class="tags"><li>B2B SaaS</li><li>Fintech workflows</li><li>Agentic AI</li><li>User testing</li></ul>
+      </div>
+    </details>
+    <details class="role">
+      <summary>
+        <div><p class="kicker">Product and AI</p><h3>BossWorks</h3><p class="title">AI/ML Engineer → Associate Product Manager</p></div>
+        <span class="plus" aria-hidden="true"></span>
+        <p class="out">Shipped an AI launch platform, a multilingual news feature (+12% DAU), and an agent evaluation framework.</p>
+        <p class="when"><span>Feb 2024 to Mar 2026</span><span>Bangalore, India</span></p>
+      </summary>
+      <div class="more-body">
+        <ul class="b">
+          <li>Owned end-to-end development of an AI-powered business launch platform, turning entrepreneur needs into workflows for AI-generated business plans, financial planning, budgeting, and execution.</li>
+          <li>Led product definition for AI business assistants: functional requirements, conversation flows, prompt strategy, and expected model behavior, with AI/ML engineers.</li>
+          <li>Reduced development iteration cycles by 30% by prototyping in Cursor, Claude, and Lovable to validate ideas before implementation.</li>
+          <li>Improved expert discovery by 35% within 2 weeks by optimizing onboarding workflows and aligning product, marketing, and operations.</li>
+          <li>Drove end-to-end development and launch of a multilingual AI news summarization feature, defining success metrics and contributing to a 12% increase in DAU.</li>
+          <li>Developed an evaluation framework for AI agents covering factual accuracy, context utilization, hallucination and grounding, safety compliance, and response quality.</li>
+        </ul>
+        <ul class="tags"><li>AI agents</li><li>Evals</li><li>Rapid prototyping</li><li>Growth</li></ul>
+      </div>
+    </details>
+    <details class="role">
+      <summary>
+        <div><p class="kicker">Foundation</p><h3>Reliance Industries</h3><p class="title">Data Analyst Intern</p></div>
+        <span class="plus" aria-hidden="true"></span>
+        <p class="out">Forecasting accuracy up 20%. Reporting turnaround down 40%.</p>
+        <p class="when"><span>Jun 2023 to Aug 2023</span><span>Shahdol, India</span></p>
+      </summary>
+      <div class="more-body">
+        <ul class="b">
+          <li>Developed forecasting models that improved prediction accuracy by 20%.</li>
+          <li>Built dashboards that reduced reporting turnaround time by 40%.</li>
+        </ul>
+        <ul class="tags"><li>Forecasting</li><li>Dashboards</li><li>Python</li></ul>
+      </div>
+    </details>
+  </div>
+</div></section>
+
+<section id="approach"><div class="wrap">
+  <div class="sh">
+    <div><p class="kicker">My approach</p><h2>How I <em>think.</em></h2></div>
+  </div>
+  <div class="steps">
+    <div class="step"><span class="mono">Discover</span><h3>Find the real problem</h3><p>Sit with users and stakeholders until the workflow behind the request is clear.</p></div>
+    <div class="step"><span class="mono">Define</span><h3>Write it down</h3><p>Requirements, business rules, guardrails, and success metrics before anyone builds.</p></div>
+    <div class="step"><span class="mono">Build</span><h3>Prototype first</h3><p>Validate in Cursor, Claude, and Lovable, then ship with engineering.</p></div>
+    <div class="step"><span class="mono">Evaluate</span><h3>Measure the AI</h3><p>Check accuracy, grounding, and safety, not just whether it launched.</p><p style="margin-top:12px"><a class="doclink" href="#case-study" data-doc="case-study">See it in the Voice of Customer Copilot case study ↗</a></p></div>
+  </div>
+</div></section>
+
+<section id="toolkit"><div class="wrap">
+  <div class="sh">
+    <div><p class="kicker">My toolkit</p><h2>What I bring to <em>the table.</em></h2></div>
+  </div>
+  <div class="kit">
+    <div><h3>Product management</h3><p>Product thinking · Roadmaps · Backlogs · Prioritization · Sprint execution · Cross-functional delivery · Functional testing</p></div>
+    <div><h3>AI and intelligent systems</h3><p>AI agents · Prompt engineering · RAG · AI workflows · AI product design · Workflow automation</p></div>
+    <div><h3>Data and analytics</h3><p>Python · SQL · Data analysis · Product metrics</p></div>
+    <div><h3>Tools and prototyping</h3><p>Claude · Cursor · Lovable · Bolt · Jira · Figma · Notion</p></div>
+  </div>
+</div></section>
+
+<section id="about"><div class="wrap">
+  <div class="about">
+    <div><p class="kicker">A little about me</p><h2>Curious by nature. <em>Product-minded</em> by choice.</h2></div>
+    <div class="copy">
+      <p>My journey started in data science and AI/ML, where I learned to work with complex systems and turn data into useful insights. Over time I moved closer to the product: understanding users, shaping experiences, and working with teams to bring ideas to life.</p>
+      <p>Today I enjoy the space where product thinking and applied AI meet: figuring out where intelligence genuinely helps, designing the right workflow around it, and making sure the experience works in the real world.</p>
+      <ul class="tags"><li>Product discovery</li><li>AI systems</li><li>Experimentation</li><li>Data-driven decisions</li></ul>
+    </div>
+  </div>
+  <div class="facts">
+    <div class="fact"><span class="mono">Education</span><h3>MSc. Data Science</h3><p>CHRIST University, Bengaluru · 2022 to 2024</p></div>
+    <div class="fact"><span class="mono">Education</span><h3>BSc. Computer Science</h3><p>Pt. SNS University, Shahdol · 2018 to 2021</p></div>
+    <div class="fact"><span class="mono">Recognition</span><h3>Intel oneAPI Hackathon</h3><p>2023 · Top 6 finalist</p></div>
+    <div class="fact"><span class="mono">Recognition</span><h3>Gold Medalist</h3><p>1st rank, BSc Computer Science · Academic scholarship in 12th grade</p></div>
+  </div>
+</div></section>
+</main>
+
+<div class="wrap" style="padding-bottom:0"><div class="contact" id="contact" style="padding:clamp(32px,6vw,80px)">
+  <p class="kicker">The next chapter</p>
+  <h2>Have an interesting problem? Let's figure it out.</h2>
+  <p class="l">Let's talk about products, AI, and ideas worth building.</p>
+  <div class="cta-row">
+    <a class="btn dark" href="https://linkedin.com/in/namrata-singh798" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a class="btn ghost" href="mailto:namratasingh0712@gmail.com?subject=Hello%20Namrata">Email me</a>
+    <a class="btn ghost" href="#resume" data-doc="resume">Resume ↗</a>
+  </div>
+  <div class="mail"><span>namratasingh0712@gmail.com</span><button type="button" id="copyMail">Copy</button></div>
+</div></div>
+<footer><div class="wrap mono"><span>Namrata. © 2026</span><span>Made with curiosity ✳</span></div></footer>
+
+<dialog id="viewer" aria-labelledby="vtitle">
+  <div class="dh">
+    <div class="l"><strong id="vtitle">Document</strong><span class="pill" id="vpill"></span></div>
+    <div class="l"><a class="btn sm ghost" id="vdl" href="#" target="_blank" rel="noopener" hidden>Download PDF ↓</a><button class="x" type="button" id="vclose" aria-label="Close">×</button></div>
+  </div>
+  <div class="db"><nav class="toc" id="vtoc" aria-label="Sections"></nav><div class="doc" id="vdoc"></div></div>
+</dialog>
+
+<template id="doc-voc-prd">
+<h2>Voice of Customer Copilot</h2>
+<p class="mono" style="color:var(--muted)">Product requirements document · v1</p>
+
+<h3 id="p-overview">Overview</h3>
+<p>Voice of Customer Copilot reads app-store reviews and tells a product manager what to fix first. It ranks problems by how serious and how widespread they are, flags releases that made things worse, and writes a weekly brief where every claim comes with real quotes.</p>
+<p>The value is trust, not summarizing. Every insight shows its evidence, every number comes from code, and when the data is thin the product says "not enough evidence" instead of guessing.</p>
+
+<h3 id="p-problem">Problem</h3>
+<p>A PM on a consumer finance app gets around 130 reviews a day and can't read them all. The usual process is skimming recent 1-star reviews on a Monday. That leaves three questions open: which complaints are real, which are growing, and how to defend the choice to engineering or leadership.</p>
+<p>I looked at 36 days of public reviews for one investing app (4,600 reviews) to see how much signal there actually is:</p>
+<ul>
+  <li>78% are 5 stars, and 71% are three words or fewer.</li>
+  <li>Only about 336 reviews are real complaints (1 to 2 stars, 8 or more words). That is roughly 9 a day.</li>
+  <li>The real work is finding those 9 a day and showing whether they are growing.</li>
+</ul>
+
+<h3 id="p-users">Users</h3>
+<table>
+  <tr><th>Primary</th><td>Maya, a product manager who owns a squad (trading, payments or onboarding). She ships every one to two weeks, has little time, doesn't trust AI summaries, and needs evidence she can forward.</td></tr>
+  <tr><th>Later</th><td>Engineering leads (bug triage), support operations, leadership</td></tr>
+</table>
+<p>Maya has five decisions to make, and the product is built around them:</p>
+<ul>
+  <li>What should we fix this sprint?</li>
+  <li>Did the last release break something?</li>
+  <li>Is this a bug, a design problem or a feature request?</li>
+  <li>What are users asking for that we don't have?</li>
+  <li>What do I tell leadership?</li>
+</ul>
+<p>The first two carry most of the value, so I built them first.</p>
+
+<h3 id="p-goals">Goals and success metrics</h3>
+<table>
+  <tr><th>Speed</th><td>A fix list in under 15 minutes. Today it takes roughly two hours of manual reading.</td></tr>
+  <tr><th>Evidence</th><td>Every claim traces back to a verbatim review quote.</td></tr>
+  <tr><th>Reliability</th><td>Critical issues caught: at least 90%. Problem-finding score (F1): at least 0.75. Sentiment agreement (kappa): at least 0.70. I wrote these bars down before seeing any results.</td></tr>
+  <tr><th>Releases</th><td>Spot a release that made things worse within days. The alarm should stay quiet when nothing changed.</td></tr>
+  <tr><th>Discipline</th><td>Use AI only where it beats a simple non-AI baseline, and prove it with numbers.</td></tr>
+</table>
+
+<h3 id="p-scope">Scope</h3>
+<p><strong style="color:var(--ink)">In scope for v1:</strong> one app, one review source (Google Play), English and Hinglish, one persona, a weekly or on-demand batch.</p>
+<p><strong style="color:var(--ink)">Out of scope:</strong> competitor tracking, churn prediction, replying to reviews, other review sources, private analytics such as funnels and crash logs, real-time alerts.</p>
+
+<h3 id="p-flow">How it works</h3>
+<p>Reviews → clean → filter → AI reads each review → code decides severity → group into themes → code ranks and checks releases → weekly brief.</p>
+<table>
+  <tr><th>Code</th><td>Removing personal data, the filter, checking every AI answer, severity, all counts and rankings, the release statistics, the brief</td></tr>
+  <tr><th>AI</th><td>Reading each review (category, sentiment, problems, quotes, true/false facts) and deciding which small groups of problems mean the same thing</td></tr>
+  <tr><th>Why this split</th><td>Reviews are free text with mixed Hindi and English, sarcasm and half sentences, which suits AI. Counting, ranking and statistics must be exact and repeatable, which suits code.</td></tr>
+</table>
+<p>Each review gets one of 12 categories: order execution, payments and funds, login and account, crash or bug, performance, UX friction, feature request, charges and pricing, customer support, fraud or money-loss claim, praise, other. The last four never enter the fix list. Fraud and money-loss claims get their own section, labeled as claims.</p>
+
+<h3 id="p-req">Requirements</h3>
+<p><strong style="color:var(--ink)">The rule behind every requirement: AI reads, code decides and counts.</strong> A model never produces a number you see.</p>
+<table>
+  <tr><th>Clean and filter</th><td>Remove names, photos and developer replies at the first step. A rule-based filter drops reviews with no signal (about 77% of them). It must miss at most 2% of real complaints.</td></tr>
+  <tr><th>Read each review</th><td>The AI picks a category, sentiment, the specific problems, a word-for-word quote for each, and answers eight true/false questions (money lost, money stuck, order went wrong, a main action blocked, and so on). Code checks the answer. A quote that isn't really in the review is rejected and redone.</td></tr>
+  <tr><th>Severity</th><td>Code decides, using rules I wrote. The AI only supplies the true/false facts. Money lost, an order that went wrong or a security issue means critical.</td></tr>
+  <tr><th>Themes</th><td>Similar problems are grouped. A theme needs at least 5 reviews to be ranked. Smaller groups show as "emerging, low evidence".</td></tr>
+  <tr><th>Ranking</th><td>Priority = severity points × trend. The formula and weights are visible, and the PM can change them.</td></tr>
+  <tr><th>Release check</th><td>Flag a version only with at least 30 reviews on each side, a statistical test, and a rise of at least 1.5×. Otherwise say "not enough evidence".</td></tr>
+  <tr><th>Weekly brief</th><td>Written by a template from code-computed numbers. A self-check confirms every number matches and every claim has a quote.</td></tr>
+  <tr><th>Fintech safety</th><td>Money-loss and fraud claims are always attributed ("a reviewer says…"), never stated as fact. No personal identifiers anywhere.</td></tr>
+</table>
+
+<h3 id="p-eval">How I decide it works</h3>
+<p>I wrote a checklist of 94 checks, one stage at a time, because a single overall accuracy number hides where a bad insight came from. Each check says how it's measured, what the bar is, and where it stands today: 48 measured, 25 partly measured, 21 not done yet. I wrote the bars down before I saw any results. These are the ones that matter most:</p>
+<table>
+  <tr><th>Stage</th><td>What I check</td><td>Bar</td></tr>
+  <tr><th>Cleaning</th><td>No names, photos, developer replies or personal details left in the stored data or the app</td><td>None found</td></tr>
+  <tr><th>Filter</th><td>Real complaints it wrongly skips (I label a random sample of the skipped reviews)</td><td>At most 2%</td></tr>
+  <tr><th>Reading</th><td>Problem finding (F1), categories (macro F1), sentiment (kappa), and whether it beats a keyword baseline</td><td>0.75, 0.80, 0.70, clear lift</td></tr>
+  <tr><th>Quotes</th><td>Every quote appears word for word in the review. Rejected answers are logged and sorted as altered, reworded or invented</td><td>100%</td></tr>
+  <tr><th>Severity</th><td>Critical issues caught, and critical calls that were right, against my own ratings. Never two or more levels off in the dangerous direction</td><td>90% and 70%</td></tr>
+  <tr><th>Themes</th><td>Is each ranked theme one problem with one owner? I read them myself. Also how many problem reviews land in a ranked theme</td><td>85% coherent, 60% coverage</td></tr>
+  <tr><th>Ranking</th><td>Formulas tested, I agree with the top 5, and a PM can explain the priority score</td><td>4 of 5 overlap, 2 of 3 PMs</td></tr>
+  <tr><th>Release check</th><td>Stays quiet when I shuffle versions so any difference is chance, and catches an injected jump. I report how big a change it needs</td><td>Near-zero false alarms</td></tr>
+  <tr><th>Weekly brief</th><td>Every number matches the code, and every claim has a real quote from the review it cites</td><td>100%</td></tr>
+  <tr><th>Made-up content</th><td>Instructions hidden inside a review, and gibberish or emoji-only reviews, must not change the output</td><td>No change</td></tr>
+  <tr><th>Cost and speed</th><td>Tokens per review, cost per 1,000 reviews by model, time per page and per live review</td><td>Reported</td></tr>
+</table>
+<p>A few rules I kept: tune on practice data and score the held-out set once, always show how many cases a number rests on, compare against a simple baseline, and write down every change I made after seeing results. The references are kept separate: my own severity ratings, a second labeler on 200 reviews, and two independent labelers on 99 reviews. Results are in the case study.</p>
+
+<h3 id="p-risks">Risks and open questions</h3>
+<ul>
+  <li><strong style="color:var(--ink)">A real quote with the wrong label.</strong> Code can catch made-up text but not a wrong category. Only people and cross-checks catch that, so a human check of about 60 category labels is still open.</li>
+  <li><strong style="color:var(--ink)">Reviews are a vocal minority.</strong> Every theme shows its sample size and a "directional only" note.</li>
+  <li><strong style="color:var(--ink)">Few serious cases to test on.</strong> Only 7 of my 30 test reviews were critical, so the severity result is encouraging, not proven.</li>
+  <li><strong style="color:var(--ink)">Free tools cap the volume.</strong> I built it on free model limits, so the larger test runs were slow and rationed.</li>
+  <li><strong style="color:var(--ink)">Still to do:</strong> score the held-out test set once, and watch PMs use it.</li>
+</ul>
+</template>
+
+<template id="doc-voc-case">
+<h2>Voice of Customer Copilot</h2>
+<p class="mono" style="color:var(--muted)">Case study · Independent project</p>
+
+<h3 id="c-short">The short version</h3>
+<p>A PM at a consumer finance app gets about 130 app-store reviews a day and has no good way to tell which complaints are real, which are growing, and which are worth fixing. I built a copilot that reads the reviews, ranks the problems, flags releases that made things worse, and writes a weekly brief with real quotes as proof.</p>
+<p>The AI was the easy part. The harder part was deciding where AI should not be used, and finding out where it was wrong.</p>
+
+<h3 id="c-problem">The problem</h3>
+<p>I worked with 4,600 public Play Store reviews of an investing app, collected over 36 days. I wanted to know how much of it is useful. 78% are 5 stars and 71% are three words or fewer. Only about 336 are real complaints, which is around 9 a day.</p>
+<p>So the PM isn't short of reviews. They're short of a way to find those few and see which ones are growing. Skimming recent 1-star reviews on a Monday can't tell you that, and it can't help you defend a choice to engineering.</p>
+
+<h3 id="c-how">How it works</h3>
+<p>One rule shaped everything: <strong style="color:var(--ink)">the AI reads, and code decides and counts.</strong> No number on the screen comes from a model.</p>
+<table>
+  <tr><th>Clean</th><td>Code removes names, photos and developer replies</td></tr>
+  <tr><th>Filter</th><td>Code rules drop reviews with nothing to learn from (77% of them)</td></tr>
+  <tr><th>Read</th><td>AI labels each review: category, sentiment, the problems, a word-for-word quote, and eight true/false facts</td></tr>
+  <tr><th>Check</th><td>Code rejects any label whose quote isn't actually in the review</td></tr>
+  <tr><th>Severity</th><td>Code, using rules I wrote</td></tr>
+  <tr><th>Themes</th><td>Word matching first, then an AI step that merges groups that mean the same thing</td></tr>
+  <tr><th>Rank and brief</th><td>Code ranks themes, checks releases and fills a brief template</td></tr>
+</table>
+
+<h3 id="c-decisions">Four decisions that shaped it</h3>
+<p><strong style="color:var(--ink)">1. I took severity away from the AI.</strong><br>
+My first version asked the model how serious each problem was. I rated 70 cases myself and compared. The model caught only 11 of the 27 issues I had rated critical (41%), and rewriting the instructions didn't help (37%).</p>
+<p>So I changed the job. The model now answers eight yes/no questions: was money lost, is money stuck, did an order go wrong, is a main action blocked, and so on. Then code applies rules I can read and change. On 30 new reviews I rated myself, it caught 7 of 7 critical issues, and 7 of its 9 critical calls were right (78%). It landed within one level of my rating 97% of the time. Only 7 of those reviews were critical, so I call this encouraging, not proven.</p>
+
+<p><strong style="color:var(--ink)">2. My own scoring rule was wrong, and I found out.</strong><br>
+My first rule counted a problem as "found" only if the two quotes overlapped heavily. It gave a score of 0.38, which looked terrible. The real cause was that one labeler quotes whole reviews and the other quotes short phrases. 101 of 185 correct matches were being counted as misses. I changed the rule to compare the shorter quote against the longer one, wrote down why, and the score became 0.85. I made that change on practice data only. The held-out test set stays untouched.</p>
+
+<p><strong style="color:var(--ink)">3. Word matching alone didn't group problems well enough.</strong><br>
+It turned 252 problems into 147 themes, and only 6 had five or more reviews. That's too scattered to rank. I added a step where a model decides which small groups mean the same thing. It can only merge groups that already exist, and never across categories. The result was 95 themes, 10 of them ranked, and the share of problem reviews inside a ranked theme went from 27% to 56%. When I read the ten ranked themes myself, seven were clearly coherent and three were a bit broad.</p>
+
+<p><strong style="color:var(--ink)">4. The release alarm is cautious on purpose.</strong><br>
+It flags a version only with 30 or more reviews on each side, a proper statistical test, and a rise of at least 1.5 times. To test it, I shuffled which version each review belonged to, so any difference was pure chance. It raised a false alarm 0.9% of the time (18 of 2,000). I also injected real increases. With 80 reviews per version, a doubling of complaints was caught 74% of the time. A 1.6× rise was caught only 23% of the time. So "no flag" doesn't mean "no problem", and the app tells you that.</p>
+
+<h3 id="c-check">How I checked it</h3>
+<p>I used three kinds of reference and kept them separate, because they are not equally trustworthy: my own ratings (the strongest), a second labeler on 200 reviews, and two labelers working independently on the same 99 reviews.</p>
+<table>
+  <tr><th>Problem finding on 200 reviews (precision / recall / F1)</th><td>0.83 / 0.86 / <strong style="color:var(--ink)">0.85</strong>. A keyword-rules baseline scored 0.55, and ranking by star rating alone scored 0.04.</td></tr>
+  <tr><th>Category score (macro F1)</th><td>0.83</td></tr>
+  <tr><th>Sentiment agreement (Cohen's kappa)</th><td>0.97</td></tr>
+  <tr><th>Two independent labelers on 99 reviews</th><td>Sentiment kappa 0.96, severity weighted kappa 0.81, problem finding F1 0.75</td></tr>
+  <tr><th>Quotes the model made up</th><td>1 in 67 (1.5%) in a first look, caught by code. Another 3 were lightly altered and also caught.</td></tr>
+</table>
+<p>Every number can be recomputed with one command. I wrote the pass/fail bars down before I saw any result.</p>
+
+<h3 id="c-wrong">What went wrong, and what I'd do differently</h3>
+<ul>
+  <li><strong style="color:var(--ink)">Free tools set my schedule.</strong> The free model plan allows 8,000 tokens a minute and 200,000 a day. A 200-review run took about 20 minutes, and I hit the daily limit several times. I added automatic waiting, clean stops and a cache so reruns cost nothing. Next time I'd measure tokens per review before writing the prompt, because my long rulebook was most of the cost.</li>
+  <li><strong style="color:var(--ink)">I can't yet prove the filter is safe.</strong> It missed none of 129 real complaints in my sample, but only about 25 reviews in that sample were skipped. That's too few to prove my bar of at most 2% missed.</li>
+  <li><strong style="color:var(--ink)">The model seems to over-use "order went wrong".</strong> Of 11 reviews where two labelers disagreed on a fact, the pipeline said this three times for things that look like a display glitch or a lottery, not a wrongly placed order. That's my reading, not a formal check, so I left the wording unchanged.</li>
+  <li><strong style="color:var(--ink)">Short praise splits the labelers.</strong> "Easy to use" is useful praise to one and nothing to analyse to the other, so they agree on only 75% of "usable" calls. It doesn't change the fix list.</li>
+</ul>
+
+<h3 id="c-data">What the results are based on</h3>
+<ul>
+  <li>The results come from public reviews I can't republish, so the live demo uses invented ones.</li>
+  <li>Names, photos and developer replies were removed first.</li>
+  <li>The 200-review comparison is against a second AI labeler following my labeling guide. It is not human-verified.</li>
+  <li>The severity ratings (70 cases) are mine.</li>
+  <li>The pipeline ran on free-tier models. I didn't test a paid one.</li>
+</ul>
+
+<h3 id="c-cost">What it costs</h3>
+<p>About 1,090 tokens per review. On a free tier that's $0. On a paid tier it ranges from about $0.22 per 1,000 reviews (cheapest) to about $8.60 (top tier). At this volume, cost isn't what decides the model. Quality on mixed Hindi-English text and on severity is.</p>
+
+<h3 id="c-next">What I'd do next</h3>
+<ul>
+  <li>Check about 60 category labels myself.</li>
+  <li>Score the held-out test set, once.</li>
+  <li>Watch two or three PMs use it: how long to a fix list, and whether they understand the priority score.</li>
+</ul>
+<p><a href="https://voice-of-customer-copilot-f6achlhlvutr6xyye3sdms.streamlit.app/" target="_blank" rel="noopener" style="color:var(--ink)">Try the live app ↗</a> &nbsp;·&nbsp; <a href="https://github.com/namratas798/voice-of-customer-copilot" target="_blank" rel="noopener" style="color:var(--ink)">Code on GitHub ↗</a></p>
+</template>
+
+<template id="doc-resume">
+  <h2>Namrata Singh</h2>
+  <p class="mono" style="color:var(--muted)">AI Product Manager · Bangalore, India</p>
+  <p>namratasingh0712@gmail.com · linkedin.com/in/namrata-singh798</p>
+  <h3 id="r-summary">Summary</h3>
+  <p>AI Product Manager with a background in Data Science and AI/ML, experienced in building AI-powered B2B and B2C products in fast-paced startup environments. Skilled in product discovery, agentic AI workflows, rapid prototyping, and cross-functional execution.</p>
+  <h3 id="r-exp">Experience</h3>
+  <p><strong style="color:var(--ink)">Product Manager, Terrantic</strong><br>Apr 2026 to present · Bangalore, India</p>
+  <ul>
+    <li>Partner with enterprise stakeholders to turn fragmented workflows and disconnected systems into AI-powered product requirements, working with engineering teams.</li>
+    <li>Drive a financial accounting platform for the fresh-produce industry, replacing Excel-heavy workflows with a centralized tool for revenue, costs, deductions, and supplier settlements, with better financial visibility and traceability.</li>
+    <li>Led user testing and cross-functional communication to refine accounting workflows, identify edge cases, and improve UI/UX through structured defect tracking.</li>
+    <li>Define product requirements and business rules for financial modules, leading engineering and design through development and testing for accurate, auditable records.</li>
+    <li>Defined requirements for AI assistants: agent responsibilities, tool-calling workflows, inputs and data sources, expected model behavior, guardrails, edge cases, and escalation paths.</li>
+  </ul>
+  <p><strong style="color:var(--ink)">AI/ML Engineer → Associate Product Manager, BossWorks</strong><br>Feb 2024 to Mar 2026 · Bangalore, India</p>
+  <ul>
+    <li>Owned end-to-end development of an AI-powered business launch platform covering AI-generated business plans, financial planning, budgeting, and business execution.</li>
+    <li>Led product definition for AI business assistants: functional requirements, conversation flows, prompt strategy, and expected model behavior.</li>
+    <li>Reduced development iteration cycles by 30% by prototyping with Cursor, Claude, and Lovable before implementation.</li>
+    <li>Improved expert discovery by 35% within 2 weeks by optimizing onboarding workflows and aligning product, marketing, and operations.</li>
+    <li>Drove end-to-end launch of a multilingual AI news summarization feature, defining success metrics and contributing to a 12% increase in DAU.</li>
+    <li>Developed an evaluation framework for AI agents covering factual accuracy, context utilization, hallucination and grounding, safety compliance, and response quality.</li>
+  </ul>
+  <p><strong style="color:var(--ink)">Data Analyst Intern, Reliance Industries Limited</strong><br>Jun 2023 to Aug 2023 · Shahdol, India</p>
+  <ul><li>Built forecasting models that improved prediction accuracy by 20% and dashboards that reduced reporting turnaround time by 40%.</li></ul>
+  <h3 id="r-skills">Skills</h3>
+  <table>
+    <tr><th>Product management</th><td>Product thinking, backlog management, cross-functional coordination, functional testing, bug reporting, product roadmap, rapid prototyping, feature prioritization, product development, sprint execution</td></tr>
+    <tr><th>Data and AI</th><td>Python, AI-driven workflows, prompt engineering, workflow automation, data analysis, product metrics, AI agents, AI product design, SQL, RAG</td></tr>
+    <tr><th>Tools</th><td>Claude, Cursor, Lovable, Bolt, Jira, Figma, Notion</td></tr>
+  </table>
+  <h3 id="r-edu">Education and achievements</h3>
+  <ul>
+    <li>MSc. Data Science, CHRIST University, Bengaluru · Jul 2022 to May 2024</li>
+    <li>BSc. Computer Science, Pt. SNS University, Shahdol · Jul 2018 to May 2021</li>
+    <li>Intel oneAPI Hackathon 2023: Top 6 finalist</li>
+    <li>Gold Medalist: 1st rank in BSc Computer Science · Academic excellence scholarship, 12th grade</li>
+  </ul>
+</template>
+
+<script>
+/* To add a project: add one entry here. Each doc opens in the viewer (template id) or links out (href). */
+const PROJECTS = [
+  {
+    id: 'voc-copilot', kind: 'voc', feat: true, status: 'Live demo',
+    kicker: 'Independent project', title: 'Voice of Customer Copilot',
+    summary: 'An AI agent that reads app reviews and tells a PM what to fix first. AI reads, code counts, and every number is measured.',
+    metric: { value: '4,600 → 10', label: 'reviews turned into 10 ranked problems to fix' },
+    tags: ['Product design', 'AI evaluation', 'Streamlit'],
+    docs: [
+      { label: 'Read the PRD', title: 'Product requirements document', template: 'doc-voc-prd', hash: 'prd', pill: 'PRD · v1',
+        sections: [['Overview','p-overview'],['Problem','p-problem'],['Users','p-users'],['Goals','p-goals'],['Scope','p-scope'],['How it works','p-flow'],['Requirements','p-req'],['How I decide it works','p-eval'],['Risks','p-risks']] },
+      { label: 'Read the case study', title: 'Case study', template: 'doc-voc-case', hash: 'case-study', pill: 'Case study',
+        sections: [['Short version','c-short'],['Problem','c-problem'],['How it works','c-how'],['Decisions','c-decisions'],['How I checked','c-check'],['What went wrong','c-wrong'],['Data','c-data'],['Cost','c-cost'],['Next','c-next']] },
+      { label: 'Try the live app', href: 'https://voice-of-customer-copilot-f6achlhlvutr6xyye3sdms.streamlit.app/' }
+    ]
+  },
+  {
+    id: 'rapid-prototyping', kind: 'stat', stat: '30%', statLabel: 'Fewer iteration cycles',
+    kicker: 'BossWorks', title: 'Building with speed, not shortcuts.',
+    summary: 'Rapid prototypes in Cursor, Claude, and Lovable to validate ideas and sharpen requirements before engineering starts.',
+    tags: ['Cursor', 'Claude', 'Lovable'], docs: []
+  }
+];
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const grid = document.getElementById('labGrid');
+const viewer = document.getElementById('viewer');
+const registry = {
+  resume: { label: 'Resume', template: 'doc-resume', pill: 'Resume', download: 'Namrata_Singh_Resume.pdf',
+    sections: [['Summary','r-summary'],['Experience','r-exp'],['Skills','r-skills'],['Education','r-edu']] }
+};
+
+PROJECTS.forEach(p => {
+  const vis = p.kind === 'voc'
+    ? `<div class="quote" aria-hidden="true"><span class="mono" style="color:var(--sage-ink);font-size:10px">Voice of customer · example review</span><q>My withdrawal has been pending for three days.</q><ul class="tags"><li>Payments</li><li>Critical</li><li>Money stuck</li></ul></div>`
+    : `<div><div class="big">${esc(p.stat)}</div><span class="mono" style="color:var(--muted)">${esc(p.statLabel)}</span></div>`;
+  const docs = (p.docs || []).map((d, i) => {
+    if (d.href) return `<a class="doclink" href="${esc(d.href)}" target="_blank" rel="noopener">${esc(d.label)} ↗</a>`;
+    registry[d.hash || p.id + i] = d;
+    return `<button class="doclink" type="button" data-doc="${esc(d.hash || p.id + i)}">${esc(d.label)} ↗</button>`;
+  }).join('');
+  grid.insertAdjacentHTML('beforeend', `<article class="proj ${p.kind === 'stat' ? 'proto' : ''}${p.feat ? ' feat' : ''}"><div class="vis">${vis}</div><div class="body">
+    <p class="kicker status" style="margin:0">${esc(p.status || p.kicker)}${p.status ? ' · ' + esc(p.kicker) : ''}</p>
+    <h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p>
+    ${p.metric ? `<div class="metric sm"><b>${esc(p.metric.value).replace('→', '<span class="arr">→</span>')}</b><span>${esc(p.metric.label)}</span></div>` : ''}
+    <ul class="tags">${p.tags.map(t => `<li>${esc(t)}</li>`).join('')}</ul>
+    ${docs ? `<div class="docs">${docs}</div>` : ''}</div></article>`);
+});
+grid.insertAdjacentHTML('beforeend', `<div class="proj more"><div><b>More on the way.</b>PRDs, wireframes, and prototypes land here as I ship them.</div></div>`);
+
+function openDoc(key) {
+  const d = registry[key]; if (!d) return;
+  const tpl = document.getElementById(d.template);
+  document.getElementById('vtitle').textContent = d.title || d.label.replace('Read the ', '');
+  document.getElementById('vpill').textContent = d.pill || '';
+  document.getElementById('vdoc').replaceChildren(tpl.content.cloneNode(true));
+  document.getElementById('vtoc').innerHTML = (d.sections || []).map(s => `<a href="#${s[1]}" data-jump="${s[1]}">${esc(s[0])}</a>`).join('');
+  const dl = document.getElementById('vdl');
+  dl.hidden = true;
+  if (d.download) fetch(d.download, { method: 'HEAD' }).then(r => { if (r.ok) { dl.href = d.download; dl.hidden = false; } }).catch(() => {});
+  document.getElementById('vdoc').scrollTop = 0;
+  if (!viewer.open) viewer.showModal();
+  try { history.replaceState(null, '', '#' + key); } catch (e) {}
+}
+function closeDoc() { if (viewer.open) viewer.close(); }
+viewer.addEventListener('close', () => { try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {} });
+viewer.addEventListener('click', e => { if (e.target === viewer) closeDoc(); });
+document.getElementById('vclose').addEventListener('click', closeDoc);
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-doc]'); if (b) { e.preventDefault(); openDoc(b.dataset.doc); }
+  const j = e.target.closest('[data-jump]');
+  if (j) { e.preventDefault(); const t = document.getElementById(j.dataset.jump); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  const a = e.target.closest('a[href^="#"]');
+  if (a && !a.dataset.doc && !a.dataset.jump) {
+    const id = a.getAttribute('href').slice(1);
+    if (id === 'top') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    else { const t = document.getElementById(id); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }
+  }
+});
+if (registry[location.hash.slice(1)]) openDoc(location.hash.slice(1));
+
+const cm = document.getElementById('copyMail');
+cm.addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText('namratasingh0712@gmail.com'); cm.textContent = 'Copied'; }
+  catch (e) { cm.textContent = 'Select and copy'; }
+  setTimeout(() => cm.textContent = 'Copy', 1800);
+});
+</script>
+</body>
+</html>
