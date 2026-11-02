@@ -621,7 +621,7 @@ It flags a version only with 30 or more reviews on each side, a proper statistic
   <p class="mono" style="color:var(--muted)">AI Product Manager · Bangalore, India</p>
   <p>namratasingh0712@gmail.com · linkedin.com/in/namrata-singh798</p>
   <h3 id="r-summary">Summary</h3>
-  <p>AI Product Manager with about 3 years of experience across AI/ML engineering and product management, building B2B and B2C AI products. Shipped a financial settlement platform live with 2 large enterprise customers, a multilingual AI feature that contributed to a 12% DAU increase, and a funnel-led fix that improved expert discovery by 35%. Define AI agent behavior, build evaluation frameworks, and cut front-end development time from 2 weeks to 3 days through rapid prototyping.</p>
+  <p>AI Product Manager with ~3 years across AI/ML engineering and product, building B2B and B2C AI products. Shipped a financial settlement platform live with 2 large enterprise customers, and AI features that drove a 12% DAU increase and 35% better expert discovery.</p>
   <h3 id="r-exp">Experience</h3>
   <p><strong style="color:var(--ink)">Product Manager, Terrantic</strong><br>Apr 2026 to present · Bangalore, India</p>
   <ul>
@@ -632,27 +632,33 @@ It flags a version only with 30 or more reviews on each side, a proper statistic
   </ul>
   <p><strong style="color:var(--ink)">AI/ML Engineer → Associate Product Manager, BossWorks</strong><br>Feb 2024 to Mar 2026 · Bangalore, India</p>
   <ul>
-    <li>Owned end-to-end development of an AI-powered business launch platform covering AI-generated business plans, financial planning, budgeting, and business execution.</li>
-    <li>Led product definition for AI business assistants: functional requirements, conversation flows, prompt strategy, and expected model behavior.</li>
+    <li>Built (as AI/ML engineer) and then productized a multilingual AI news summarization feature: wrote the PRD, defined success metrics, and handed it to the team, contributing to a 12% increase in DAU.</li>
+    <li>Improved expert discovery by 35% within 2 weeks: ran funnel analysis to locate drop-offs, found multilingual users searching in 2–3 words with no relevant results, then shipped real-time semantic search suggestions, multilingual matching, and filters.</li>
     <li>Cut front-end development time from 2 weeks to 3 days: prototyped in Cursor following the front-end code rules, iterated live with the PM, and handed developers working code they used directly.</li>
-    <li>Improved expert discovery by 35% within 2 weeks: ran funnel analysis, found multilingual users searching in 2 to 3 words with no relevant results, then shipped real-time semantic suggestions, multilingual matching, and filters.</li>
-    <li>Built (as AI/ML engineer) and productized a multilingual AI news summarization feature: wrote the PRD, defined success metrics, and handed it to the team, contributing to a 12% increase in DAU.</li>
-    <li>Developed an evaluation framework for AI agents covering factual accuracy, context utilization, hallucination and grounding, safety compliance, and response quality.</li>
+    <li>Built an evaluation framework for AI agents scoring factual accuracy, context utilization, hallucination and grounding, safety compliance, and response quality.</li>
+    <li>Owned an AI-powered business launch platform for first-time founders (AI business plans, financial planning, budgeting), defining requirements, conversation flows, prompt strategy, and expected model behavior for its AI assistants with AI/ML engineers.</li>
   </ul>
   <p><strong style="color:var(--ink)">Data Analyst Intern, Reliance Industries Limited</strong><br>Jun 2023 to Aug 2023 · Shahdol, India</p>
-  <ul><li>Built forecasting models that improved prediction accuracy by 20% and dashboards that reduced reporting turnaround time by 40%.</li></ul>
+  <ul><li>Built forecasting models that improved prediction accuracy by 20% and dashboards that cut reporting turnaround by 40%.</li></ul>
+  <h3 id="r-projects">Projects</h3>
+  <p><strong style="color:var(--ink)">Voice of Customer Copilot</strong><br>AI copilot: app-store reviews to a ranked fix list · Python, Streamlit<br><a href="https://voice-of-customer-copilot-f6achlhlvutr6xyye3sdms.streamlit.app/" target="_blank" rel="noopener" style="color:var(--ink)">Live demo ↗</a> · <a href="#case-study" data-doc="case-study" style="color:var(--ink)">Case study</a></p>
+  <ul>
+    <li>Built a copilot that turns 4,600 app reviews into 10 ranked problems to fix; AI reads, code counts and ranks.</li>
+  </ul>
+  <p><strong style="color:var(--ink)">Text-to-SQL Query Conversion</strong><br>LLM pipeline for natural-language data access · Python, SQL, Streamlit</p>
+  <ul><li>Built an LLM pipeline that converts natural-language questions into SQL, with a Streamlit interface.</li></ul>
   <h3 id="r-skills">Skills</h3>
   <table>
-    <tr><th>Product management</th><td>Product discovery, PRDs, roadmapping, prioritization, backlog management, funnel analysis, user research, user testing, stakeholder management, agile and sprint execution, rapid prototyping, product metrics</td></tr>
-    <tr><th>AI</th><td>AI agents, agentic workflows, LLM evaluation, prompt engineering, RAG, semantic search, AI product design, workflow automation</td></tr>
-    <tr><th>Data and tools</th><td>Python, SQL, data analysis, Claude, Cursor, Lovable, Bolt, Jira, Figma, Notion</td></tr>
+    <tr><th>Product</th><td>Product Discovery, PRDs, Roadmapping, Prioritization, Backlog Management, Funnel Analysis, User Research, User Testing, Stakeholder Management, Agile, Rapid Prototyping, Product Metrics</td></tr>
+    <tr><th>AI</th><td>AI Agents, Agentic Workflows, LLM Evaluation, Prompt Engineering, RAG, Semantic Search, AI Product Design, Workflow Automation</td></tr>
+    <tr><th>Data and tools</th><td>Python, SQL, Data Analysis, Claude, Cursor, Lovable, Bolt, JIRA, Figma, Notion</td></tr>
   </table>
   <h3 id="r-edu">Education and achievements</h3>
   <ul>
     <li>MSc. Data Science, CHRIST University, Bengaluru · Jul 2022 to May 2024</li>
     <li>BSc. Computer Science, Pt. SNS University, Shahdol · Jul 2018 to May 2021</li>
     <li>Intel oneAPI Hackathon 2023: Top 6 finalist</li>
-    <li>Gold Medalist: 1st rank in BSc Computer Science · Academic excellence scholarship, 12th grade</li>
+    <li>Gold Medalist: 1st rank in BSc Computer Science</li>
   </ul>
 </template>
 
@@ -686,7 +692,7 @@ const grid = document.getElementById('labGrid');
 const viewer = document.getElementById('viewer');
 const registry = {
   resume: { label: 'Resume', template: 'doc-resume', pill: 'Resume', download: 'Namrata_Singh_Resume.pdf',
-    sections: [['Summary','r-summary'],['Experience','r-exp'],['Skills','r-skills'],['Education','r-edu']] }
+    sections: [['Summary','r-summary'],['Experience','r-exp'],['Projects','r-projects'],['Skills','r-skills'],['Education','r-edu']] }
 };
 
 PROJECTS.forEach(p => {
